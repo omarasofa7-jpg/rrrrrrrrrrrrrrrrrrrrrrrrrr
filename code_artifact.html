@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشرق الأوسط للصناعات والحلول الصناعية | Middle East Industries</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            600: '#475569',
+                            500: '#64748b',
+                        },
+                        amberGold: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            400: '#fbbf24',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .factory-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.85) 100%), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="sticky top-0 z-40 bg-industrial-900 text-white shadow-xl border-b border-industrial-700">
+        <!-- Top bar -->
+        <div class="bg-industrial-800 text-xs py-2 px-4 border-b border-industrial-700">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+                <div class="flex items-center gap-6">
+                    <span class="flex items-center gap-2"><i class="fas fa-phone-alt text-amberGold-500"></i> +20 (02) 2345-6789</span>
+                    <span class="hidden sm:flex items-center gap-2"><i class="fas fa-envelope text-amberGold-500"></i> info@middle-east-ind.com</span>
+                    <span class="hidden md:flex items-center gap-2"><i class="fas fa-map-marker-alt text-amberGold-500"></i> المنطقة الصناعية الثالثة، الجيزة، مصر</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 bg-industrial-900 px-3 py-1 rounded border border-industrial-700 text-xs">
+                        <span class="text-amberGold-500 font-bold">العملة:</span>
+                        <select id="currencySelect" class="bg-transparent text-white focus:outline-none cursor-pointer">
+                            <option value="EGP" class="bg-industrial-900">ج.م (EGP)</option>
+                            <option value="USD" class="bg-industrial-900">$ (USD)</option>
+                        </select>
+                    </div>
+                    <button onclick="openAdminLoginModal()" class="flex items-center gap-1.5 text-amberGold-400 hover:text-amberGold-300 font-semibold transition">
+                        <i class="fas fa-user-shield"></i> بوابة الإدارة
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navbar -->
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-amberGold-500 to-amberGold-400 flex items-center justify-center shadow-lg text-industrial-900 font-black text-xl">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight leading-none text-white">الشرق الأوسط</h1>
+                    <span class="text-xs text-amberGold-400 tracking-wider font-semibold">لصناعات والحلول الصناعية المتطورة</span>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm">
+                <a href="#home" class="hover:text-amberGold-400 transition">الرئيسية</a>
+                <a href="#about" class="hover:text-amberGold-400 transition">من نحن</a>
+                <a href="#products" class="hover:text-amberGold-400 transition">المنتجات</a>
+                <a href="#lines" class="hover:text-amberGold-400 transition">خطوط الإنتاج</a>
+                <a href="#services" class="hover:text-amberGold-400 transition">خدماتنا</a>
+                <a href="#clients" class="hover:text-amberGold-400 transition">عملاؤنا</a>
+                <a href="#contact" class="hover:text-amberGold-400 transition">اتصل بنا</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="openCartDrawer()" class="relative bg-industrial-800 hover:bg-industrial-700 p-2.5 rounded-lg border border-industrial-700 transition flex items-center gap-2">
+                    <i class="fas fa-shopping-cart text-amberGold-500"></i>
+                    <span class="hidden sm:inline text-xs font-semibold">سلة الطلبات</span>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-amberGold-500 text-industrial-900 font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-white p-2 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-industrial-800 border-t border-industrial-700 px-4 py-4 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400 border-b border-industrial-700/50">الرئيسية</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400 border-b border-industrial-700/50">من نحن</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400 border-b border-industrial-700/50">المنتجات</a>
+            <a href="#lines" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400 border-b border-industrial-700/50">خطوط الإنتاج</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400 border-b border-industrial-700/50">خدماتنا</a>
+            <a href="#clients" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400 border-b border-industrial-700/50">عملاؤنا</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 hover:text-amberGold-400">اتصل بنا</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero-bg text-white py-24 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-amberGold-500/20 border border-amberGold-500/40 text-amberGold-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                    <i class="fas fa-award"></i> رواد التصنيع والحلول الهندسية المتقدمة في الشرق الأوسط
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                    حلول صناعية متكاملة <br class="hidden sm:inline"><span class="text-amberGold-500">بمعايير عالمية دقيقة</span>
+                </h1>
+                <p class="text-slate-300 text-lg sm:text-xl font-normal leading-relaxed mb-8">
+                    نقدم أحدث المعدات الصناعية، خطوط الإنتاج الآلية، قطع الغيار الهندسية، والخدمات المصنعية المخصصة للقطاعات الثقيلة والخفيفة بأعلى معايير الجودة العالمية ISO.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#products" class="bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center gap-3 text-base">
+                        <span>استكشف منتجاتنا</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <a href="#contact" class="bg-industrial-800 hover:bg-industrial-700 text-white border border-industrial-600 font-semibold px-8 py-4 rounded-xl shadow transition flex items-center gap-3 text-base">
+                        <span>تواصل معنا</span>
+                        <i class="fas fa-headset text-amberGold-500"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-12 border-t border-slate-700/60">
+                <div class="bg-industrial-900/60 backdrop-blur border border-industrial-700/80 p-5 rounded-2xl">
+                    <div class="text-3xl lg:text-4xl font-black text-amberGold-500 mb-1">+25</div>
+                    <div class="text-sm text-slate-300 font-medium">عاماً من الخبرة والتميز</div>
+                </div>
+                <div class="bg-industrial-900/60 backdrop-blur border border-industrial-700/80 p-5 rounded-2xl">
+                    <div class="text-3xl lg:text-4xl font-black text-amberGold-500 mb-1">+500</div>
+                    <div class="text-sm text-slate-300 font-medium">مشروع صناعي منجز</div>
+                </div>
+                <div class="bg-industrial-900/60 backdrop-blur border border-industrial-700/80 p-5 rounded-2xl">
+                    <div class="text-3xl lg:text-4xl font-black text-amberGold-500 mb-1">100%</div>
+                    <div class="text-sm text-slate-300 font-medium">جودة مطابقة للمواصفات</div>
+                </div>
+                <div class="bg-industrial-900/60 backdrop-blur border border-industrial-700/80 p-5 rounded-2xl">
+                    <div class="text-3xl lg:text-4xl font-black text-amberGold-500 mb-1">+12</div>
+                    <div class="text-sm text-slate-300 font-medium">دولة نخدمها إقليمياً</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="مصنع الشرق الأوسط" class="w-full h-[420px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-industrial-900 text-white p-6 rounded-2xl shadow-2xl border border-industrial-700 hidden sm:block">
+                        <div class="flex items-center gap-4">
+                            <div class="text-amberGold-500 text-4xl font-black"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">شهادات الاعتماد الدولية</h4>
+                                <p class="text-xs text-slate-300">ISO 9001, ISO 14001, OHSAS 18001</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-amberGold-500/10 text-amberGold-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        من نحن
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-industrial-900 tracking-tight">
+                        نبتكر الحلول الهندسية ونصنع مستقبل الصناعة
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        تأسست شركة **الشرق الأوسط للصناعات والحلول الصناعية** لتكون الصرح الرائد في توفير التكنولوجيا الهندسية المتقدمة، وخطوط الإنتاج الآلية، والقطع المصنعة بدقة عالية لتلبية احتياجات المصانع الكبرى والشركات الهندسية في مصر والمنطقة العربية.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="text-amberGold-500 text-xl font-bold mt-1"><i class="fas fa-bullseye"></i></div>
+                            <div>
+                                <h4 class="font-bold text-industrial-900 mb-1">رؤيتنا</h4>
+                                <p class="text-xs text-slate-600">الريادة الإقليمية في الابتكار الصناعي وتقديم حلول مستدامة وعالية الكفاءة.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="text-amberGold-500 text-xl font-bold mt-1"><i class="fas fa-rocket"></i></div>
+                            <div>
+                                <h4 class="font-bold text-industrial-900 mb-1">رسالتنا</h4>
+                                <p class="text-xs text-slate-600">تمكين المصانع من تحقيق أعلى معدلات الإنتاجية عبر تكنولوجيا متطورة ومعايير جودة لا تقبل التنازل.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex items-center gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-amberGold-500/10 flex items-center justify-center text-amberGold-600 font-bold text-xl">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-industrial-900">هندسة ودعم فني</div>
+                                <div class="text-xs text-slate-500">فريق مهندسين متخصص على مدار الساعة</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-20 bg-slate-100 border-t border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-amberGold-500/10 text-amberGold-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                        كتالوج المنتجات
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-industrial-900 tracking-tight">
+                        منتجاتنا وحلولنا الهندسية المتقدمة
+                    </h2>
+                </div>
+                <!-- Search & Filters -->
+                <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+                    <div class="relative">
+                        <input type="text" id="searchInput" oninput="filterProducts()" placeholder="ابحث عن منتج، كود، أو مواصفات..." class="bg-white border border-slate-300 rounded-xl px-4 py-2.5 pr-10 text-sm focus:outline-none focus:border-amberGold-500 w-full sm:w-72 shadow-sm">
+                        <i class="fas fa-search absolute top-3.5 right-3.5 text-slate-400"></i>
+                    </div>
+                    <select id="categoryFilter" onchange="filterProducts()" class="bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500 shadow-sm cursor-pointer">
+                        <option value="all">جميع التصنيفات</option>
+                        <option value="خطوط إنتاج">خطوط إنتاج آلية</option>
+                        <option value="معدات هيدروليكية">معدات هيدروليكية</option>
+                        <option value="قطع غيار ميكانيكية">قطع غيار ميكانيكية</option>
+                        <option value="هياكل معدنية">هياكل معدنية</option>
+                        <option value="أنظمة تحكم وأتمتة">أنظمة تحكم وأتمتة</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Populated dynamically via JS -->
+            </div>
+            
+            <!-- Empty State -->
+            <div id="noProducts" class="hidden text-center py-16">
+                <div class="text-slate-400 text-5xl mb-4"><i class="fas fa-box-open"></i></div>
+                <h3 class="text-xl font-bold text-industrial-900 mb-2">لا توجد منتجات مطابقة للبحث</h3>
+                <p class="text-slate-500 text-sm">جرب البحث بكلمات أخرى أو تغيير تصنيف العرض.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 bg-industrial-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 relative">
+            <button onclick="closeProductModal()" class="absolute top-4 left-4 text-slate-400 hover:text-industrial-900 text-xl font-bold p-2">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <section id="lines" class="py-20 bg-industrial-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-amberGold-500/20 text-amberGold-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                    البنية التحتية التصنيعية
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">خطوط الإنتاج وأحدث الماكيناز</h2>
+                <p class="text-slate-300 text-sm sm:text-base">نمتلك أحدث ورش التصنيع المجهزة بمراكز تشغيل CNC ذات المحاور الخمسة، والروبوتات الصناعية المتقدمة.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-industrial-800 border border-industrial-700 rounded-2xl overflow-hidden shadow-xl group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="CNC Machining" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 right-3 bg-amberGold-500 text-industrial-900 font-bold text-xs px-3 py-1 rounded-full">تشغيل دقيق CNC</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-white mb-2">مراكز التصنيع الرقمي CNC</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">قدرة فائقة على تشكيل وتفريز القطع المعقدة بأجزاء ميكانيكية دقيقة تصل إلى أجزاء من المايكرون.</p>
+                        <div class="flex items-center gap-2 text-xs text-amberGold-400 font-semibold"><i class="fas fa-check-circle"></i> تفاوتات دقيقة حتى ±0.005 مم</div>
+                    </div>
+                </div>
+
+                <div class="bg-industrial-800 border border-industrial-700 rounded-2xl overflow-hidden shadow-xl group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="Robotic Assembly" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 right-3 bg-amberGold-500 text-industrial-900 font-bold text-xs px-3 py-1 rounded-full">خطوط أوتوماتيكية</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-white mb-2">التجميع الآلي للخطوط</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">أنظمة روبوتية متكاملة لتركيب وفحص المكونات الصناعية بدقة متناهية وسرعة إنتاجية ضخمة.</p>
+                        <div class="flex items-center gap-2 text-xs text-amberGold-400 font-semibold"><i class="fas fa-check-circle"></i> طاقة إنتاجية عالية على مدار الساعة</div>
+                    </div>
+                </div>
+
+                <div class="bg-industrial-800 border border-industrial-700 rounded-2xl overflow-hidden shadow-xl group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80" alt="Quality Control" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 right-3 bg-amberGold-500 text-industrial-900 font-bold text-xs px-3 py-1 rounded-full">فحص واختبار</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-white mb-2">معامل فحص الجودة (QC)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">فحص هندسي شامل بالاختبارات غير الإتلافية (NDT) واختبارات الضغط والإجهاد قبل التسليم النهائي.</p>
+                        <div class="flex items-center gap-2 text-xs text-amberGold-400 font-semibold"><i class="fas fa-check-circle"></i> شهادة مطابقة معتمدة لكل منتج</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-amberGold-500/10 text-amberGold-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                    خدماتنا المتميزة
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-industrial-900 tracking-tight">نلبي كافة احتياجات القطاع الصناعي</h2>
+                <p class="text-slate-600 text-sm sm:text-base">نقدم حزمة متكاملة من الخدمات الهندسية والتوريدات المخصصة للشركات الكبرى والمشروعات القومية.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-amberGold-500/10 text-amberGold-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-industrial-900 mb-3">التصنيع المخصص حسب الطلب</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">نقوم بتصميم وتصنيع القطع والمعدات الهندسية بناءً على الرسومات الهندسية الخاصة بشركتك ومواصفاتك الفنية.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-amberGold-500/10 text-amberGold-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-industrial-900 mb-3">التوريد الشامل للكميات الكبرى</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">توفير عقود توريد سنوية للمصانع والمشروعات الكبرى مع ضمان الالتزام بمواعيد التسليم الدقيقة وأسعار تنافسية.</p>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-amberGold-500/10 text-amberGold-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-industrial-900 mb-3">خدمات التصنيع للغير (OEM)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">تصنيع وتجميع المنتجات بعلامتكم التجارية الخاصة مع الحفاظ التام على سرية التصاميم وحقوق الملكية الفكرية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="py-20 bg-slate-100 border-t border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-amberGold-500/10 text-amberGold-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                    شركاء النجاح
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-industrial-900 tracking-tight">نفتخر بثقة أكبر الكيانات الصناعية</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center justify-center shadow-sm">
+                    <span class="font-black text-xl text-slate-700 tracking-wider">السويدي للأنابيب</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center justify-center shadow-sm">
+                    <span class="font-black text-xl text-slate-700 tracking-wider">مصر للصناعات الكيماوية</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center justify-center shadow-sm">
+                    <span class="font-black text-xl text-slate-700 tracking-wider">حديد عز الصناعية</span>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-center justify-center shadow-sm">
+                    <span class="font-black text-xl text-slate-700 tracking-wider">مجموعة الهلال الصناعية</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-amberGold-500/10 text-amberGold-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        اتصل بنا
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-industrial-900 tracking-tight">تواصل مع قسم المبيعات والاستشارات الهندسية</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">فريقنا الهندسي مستعد دائماً للإجابة على استفساراتكم وتقديم عروض الأسعار والدعم الفني السريع.</p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-industrial-900 text-amberGold-500 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-industrial-900">العنوان الرئيسي</h4>
+                                <p class="text-sm text-slate-600">المنطقة الصناعية الثالثة (أرض المصانع)، الجيزة، مصر</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-industrial-900 text-amberGold-500 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-industrial-900">أرقام التواصل</h4>
+                                <p class="text-sm text-slate-600">الهاتف: +20 (02) 2345-6789 <br>الفاكس: +20 (02) 2345-6790</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-industrial-900 text-amberGold-500 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-industrial-900">البريد الإلكتروني</h4>
+                                <p class="text-sm text-slate-600">sales@middle-east-ind.com <br>support@middle-east-ind.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-industrial-900 mb-6">طلب استفسار أو عرض سعر مباشر</h3>
+                    <form id="quoteRequestForm" onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكريم *</label>
+                                <input type="text" id="reqName" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">اسم المصنع / الشركة *</label>
+                                <input type="text" id="reqCompany" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف / واتساب *</label>
+                                <input type="tel" id="reqPhone" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">البريد الإلكتروني *</label>
+                                <input type="email" id="reqEmail" required class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">تفاصيل الطلب أو المنتجات المطلوبة *</label>
+                            <textarea id="reqDetails" rows="4" required placeholder="اكتب تفاصيل المواصفات الفنية أو أوداغ الكميات..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                            <span>إرسال طلب التسعير الآن</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart / Quote Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 bg-industrial-900/80 backdrop-blur-sm hidden justify-end">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-slate-200 mb-6">
+                    <h3 class="font-extrabold text-xl text-industrial-900 flex items-center gap-2">
+                        <i class="fas fa-shopping-cart text-amberGold-600"></i> سلة طلبات الأسعار
+                    </h3>
+                    <button onclick="closeCartDrawer()" class="text-slate-400 hover:text-industrial-900 text-xl font-bold p-2">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div id="cartItemsList" class="space-y-4 mb-6">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 pt-4">
+                <div class="flex justify-between items-center mb-4 text-base font-bold text-industrial-900">
+                    <span>إجمالي الأصناف:</span>
+                    <span id="cartTotalPrice">0</span>
+                </div>
+                <button onclick="openCheckoutModal()" class="w-full bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold py-3.5 rounded-xl transition shadow flex items-center justify-center gap-2">
+                    <span>إتمام طلب التسعير المجمع</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 bg-industrial-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 left-4 text-slate-400 hover:text-industrial-900 text-xl font-bold p-2">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-2xl font-extrabold text-industrial-900 mb-2">تأكيد إرسال الطلب</h3>
+            <p class="text-sm text-slate-500 mb-6">يرجى إدخال بيانات شركتك وسيقوم مهندس المبيعات بالتواصل معكم خلال ساعتين.</p>
+            <form onsubmit="submitCartCheckout(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">اسم المسؤول / الشركة *</label>
+                    <input type="text" id="chkName" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف *</label>
+                    <input type="tel" id="chkPhone" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">البريد الإلكتروني *</label>
+                    <input type="email" id="chkEmail" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                </div>
+                <button type="submit" class="w-full bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold py-3.5 rounded-xl transition shadow">
+                    إرسال الطلب نهائياً
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="fixed inset-0 z-50 bg-industrial-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 left-4 text-slate-400 hover:text-industrial-900 text-xl font-bold p-2">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-industrial-900 text-amberGold-500 rounded-2xl flex items-center justify-center mx-auto text-xl font-bold mb-3 shadow">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-industrial-900">بوابة الإدارة المركزية</h3>
+                <p class="text-xs text-slate-500">أدخل رمز المرور السري للدخول إلى لوحة التحكم (الافتراضي: admin123)</p>
+            </div>
+            <form onsubmit="verifyAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">كلمة مرور الإدارة</label>
+                    <input type="password" id="adminPinInput" required placeholder="أدخل كلمة المرور..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amberGold-500">
+                </div>
+                <button type="submit" class="w-full bg-industrial-900 hover:bg-industrial-800 text-white font-bold py-3.5 rounded-xl transition shadow">
+                    تسجيل الدخول للوحة التحكم
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal / View -->
+    <div id="adminDashboardModal" class="fixed inset-0 z-50 bg-industrial-900/95 hidden flex-col p-4 sm:p-8 overflow-y-auto">
+        <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col">
+            <div class="flex justify-between items-center pb-6 border-b border-industrial-700 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-amberGold-500 text-industrial-900 rounded-xl flex items-center justify-center text-lg font-black">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-white">لوحة تحكم الإدارة والتشغيل</h2>
+                        <span class="text-xs text-amberGold-400">إدارة المنتجات، الطلبات، وعروض الأسعار الفورية</span>
+                    </div>
+                </div>
+                <button onclick="closeAdminDashboard()" class="bg-industrial-800 hover:bg-industrial-700 text-white px-4 py-2 rounded-xl text-sm font-semibold border border-industrial-600 transition flex items-center gap-2">
+                    <i class="fas fa-sign-out-alt"></i> خروج من لوحة التحكم
+                </button>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="flex gap-2 mb-6 border-b border-industrial-700 pb-2">
+                <button onclick="switchAdminTab('products')" id="tabBtnProducts" class="bg-amberGold-500 text-industrial-900 font-bold px-5 py-2.5 rounded-xl text-sm transition">
+                    إدارة المنتجات والكتالوج
+                </button>
+                <button onclick="switchAdminTab('quotes')" id="tabBtnQuotes" class="bg-industrial-800 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition border border-industrial-700">
+                    طلبات التسعير والعملاء (<span id="quotesCountBadge">0</span>)
+                </button>
+            </div>
+
+            <!-- Tab 1: Products Management -->
+            <div id="adminTabProducts" class="space-y-6 flex-1">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-white">قائمة المنتجات الحالية</h3>
+                    <button onclick="openProductFormModal('add')" class="bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold px-4 py-2 rounded-xl text-sm transition flex items-center gap-2 shadow">
+                        <i class="fas fa-plus"></i> إضافة منتج جديد
+                    </button>
+                </div>
+
+                <div class="bg-industrial-800 rounded-2xl border border-industrial-700 overflow-hidden shadow-xl">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-sm text-slate-300">
+                            <thead class="bg-industrial-900 text-white text-xs uppercase border-b border-industrial-700">
+                               <tr>
+                                   <th class="p-4">الصورة</th>
+                                   <th class="p-4">اسم المنتج</th>
+                                   <th class="p-4">التصنيف</th>
+                                   <th class="p-4">كود المنتج</th>
+                                   <th class="p-4">السعر / الحالة</th>
+                                   <th class="p-4 text-center">الإجراءات</th>
+                               </tr>
+                            </thead>
+                            <tbody id="adminProductsTableBody" class="divide-y divide-industrial-700">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Quotes Management -->
+            <div id="adminTabQuotes" class="hidden space-y-6 flex-1">
+                <h3 class="text-lg font-bold text-white">طلبات التسعير الواردة من العملاء</h3>
+                <div class="bg-industrial-800 rounded-2xl border border-industrial-700 overflow-hidden shadow-xl">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-sm text-slate-300">
+                            <thead class="bg-industrial-900 text-white text-xs uppercase border-b border-industrial-700">
+                                <tr>
+                                    <th class="p-4">التاريخ</th>
+                                    <th class="p-4">اسم العميل / الشركة</th>
+                                    <th class="p-4">رقم الهاتف والبريد</th>
+                                    <th class="p-4">تفاصيل الطلب</th>
+                                    <th class="p-4">الحالة</th>
+                                    <th class="p-4 text-center">الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminQuotesTableBody" class="divide-y divide-industrial-700">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="productFormModal" class="fixed inset-0 z-50 bg-industrial-900/90 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeProductFormModal()" class="absolute top-4 left-4 text-slate-400 hover:text-industrial-900 text-xl font-bold p-2">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 id="productFormModalTitle" class="text-2xl font-extrabold text-industrial-900 mb-4">إضافة منتج جديد</h3>
+            <form onsubmit="saveProductData(event)" class="space-y-4">
+                <input type="hidden" id="editProductId">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">اسم المنتج *</label>
+                    <input type="text" id="pName" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">التصنيف *</label>
+                        <select id="pCategory" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500">
+                            <option value="خطوط إنتاج">خطوط إنتاج آلية</option>
+                            <option value="معدات هيدروليكية">معدات هيدروليكية</option>
+                            <option value="قطع غيار ميكانيكية">قطع غيار ميكانيكية</option>
+                            <option value="هياكل معدنية">هياكل معدنية</option>
+                            <option value="أنظمة تحكم وأتمتة">أنظمة تحكم وأتمتة</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">كود المنتج (SKU) *</label>
+                        <input type="text" id="pSku" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">السعر (أو اترك فارغاً لطلب السعر)</label>
+                        <input type="number" id="pPrice" placeholder="مثال: 45000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رابط صورة المنتج (Unsplash أو رابط عام) *</label>
+                        <input type="url" id="pImage" required placeholder="https://images.unsplash.com/..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">وصف مختصر للمنتج *</label>
+                    <textarea id="pDesc" rows="2" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">المواصفات الفنية التفصيلية (كل سطر مواصفة أو تفصيل)</label>
+                    <textarea id="pSpecs" rows="3" placeholder="معدل التدفق: 500 لتر/دقيقة&#10;القدرة: 45 كيلوواط&#10;الوزن: 350 كجم" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-amberGold-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold py-3 rounded-xl transition shadow">
+                    حفظ المنتج في النظام
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toastNotification" class="fixed bottom-6 left-6 z-50 bg-industrial-900 text-white px-6 py-3 rounded-xl shadow-2xl border border-industrial-700 transform translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fas fa-check-circle text-amberGold-500 text-lg"></i>
+        <span id="toastMessage" class="text-sm font-semibold">تم تنفيذ العمليات بنجاح</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-industrial-900 text-slate-400 py-12 border-t border-industrial-800">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-amberGold-500 flex items-center justify-center text-industrial-900 font-black">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <span class="font-bold text-lg text-white">الشرق الأوسط للصناعات</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    المزود الرائد للمعدات الثقيلة، خطوط الإنتاج والحلول الهندسية المتكاملة في الشرق الأوسط وأفريقيا.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-sm">روابط سريعة</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#about" class="hover:text-amberGold-400 transition">من نحن</a></li>
+                    <li><a href="#products" class="hover:text-amberGold-400 transition">كتالوج المنتجات</a></li>
+                    <li><a href="#lines" class="hover:text-amberGold-400 transition">خطوط الإنتاج</a></li>
+                    <li><a href="#services" class="hover:text-amberGold-400 transition">خدماتنا الهندسية</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-sm">التصنيفات الصناعية</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#products" class="hover:text-amberGold-400 transition">خطوط إنتاج آلية</a></li>
+                    <li><a href="#products" class="hover:text-amberGold-400 transition">معدات هيدروليكية</a></li>
+                    <li><a href="#products" class="hover:text-amberGold-400 transition">قطع غيار ميكانيكية</a></li>
+                    <li><a href="#products" class="hover:text-amberGold-400 transition">أنظمة تحكم وأتمتة</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-sm">النشرة البريدية والتحديثات</h4>
+                <p class="text-xs text-slate-400 mb-3">اشترك لتصلك أحدث الإصدارات التقنية والعروض الصناعية.</p>
+                <div class="flex">
+                    <input type="email" placeholder="بريدك الإلكتروني..." class="bg-industrial-800 border border-industrial-700 px-3 py-2 text-xs text-white rounded-r-xl focus:outline-none w-full">
+                    <button class="bg-amberGold-500 text-industrial-900 px-4 rounded-l-xl font-bold text-xs hover:bg-amberGold-600 transition">انضم</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 pt-8 border-t border-industrial-800/80 text-center text-xs text-slate-500">
+            جميع الحقوق محفوظة © 2026 شركة الشرق الأوسط للصناعات والحلول الصناعية.
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global Firebase Configuration & Variables
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'middle-east-industries-app';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "mock", projectId: "mock" };
+
+        let app, db, auth;
+        let products = [];
+        let quotes = [];
+        let cart = [];
+        let currentCurrency = 'EGP';
+
+        // Default initial seed products if none exist
+        const defaultProducts = [
+            {
+                id: 'prod-1',
+                name: 'خط تعبئة وتغليف آلي متطور CNC',
+                category: 'خطوط إنتاج',
+                sku: 'MEI-PL-101',
+                price: 750000,
+                image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                desc: 'خط إنتاج وتعبئة آلي متكامل عالي السرعة مصمم للقطاعات الغذائية والدوائية والصناعية بدقة متناهية.',
+                specs: 'السرعة: 120 عبوة/دقيقة\nالقدرة الكهربائية: 35 كيلوواط\nنظام التحكم: PLC و شاشة لمس ذكية\nالضمان: 3 سنوات'
+            },
+            {
+                id: 'prod-2',
+                name: 'مضخة هيدروليكية صناعية ضغط عالي',
+                category: 'معدات هيدروليكية',
+                sku: 'MEI-HYD-204',
+                price: 95000,
+                image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+                desc: 'مضخة هيدروليكية مكبسية ذات كفاءة استثنائية للتشغيل الشاق في المكبس والماكينات الثقيلة.',
+                specs: 'الضغط الأقصى: 350 بار\nمعدل التدفق: 150 لتر/دقيقة\nالوزن: 85 كجم\nالمادة: فولاذ مقسى معالج حرارياً'
+            },
+            {
+                id: 'prod-3',
+                name: 'ترس ميكانيكي دقيق مصنع بـ CNC',
+                category: 'قطع غيار ميكانيكية',
+                sku: 'MEI-SP-309',
+                price: null, // Request quote
+                image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+                desc: 'ترس هيلكس معدني مسنن مصنع بأعلى درجات الدقة لتحمل العزوم العالية في صندوق التروس الصناعي.',
+                specs: 'القطر: 400 مم\nعدد الأسنان: 64 سناً\nالصلادة: 60 HRC\nنوع الفولاذ: سبيكة سبائكية خاصة'
+            },
+            {
+                id: 'prod-4',
+                name: 'هيكل معدني صناعي متعدد الأطياف',
+                category: 'هياكل معدنية',
+                sku: 'MEI-STR-412',
+                price: null,
+                image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+                desc: 'هياكل فولاذية جاهزة للتجميع مصممة لتحمل الأحمال الهيكلية الفائقة والظروف البيئية القاسية.',
+                specs: 'المادة: فولاذ معالج ضد الصدأ ASTM A36\nمقاومة الرياح: حتى 180 كم/س\nالدهان: إيبوكسي حراري مقاوم للتآكل'
+            },
+            {
+                id: 'prod-5',
+                name: 'لوحة تحكم أتمتة ذكية PLC & SCADA',
+                category: 'أنظمة تحكم وأتمتة',
+                sku: 'MEI-AUT-515',
+                price: 180000,
+                image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+                desc: 'لوحة تحكم مركزية متقدمة لإدارة وتشغيل خطوط الإنتاج والمصانع بالكامل عن بعد مع مراقبة لحظية.',
+                specs: 'المعالج: Siemens S7-1500\nالشاشة: 15 بوصة تعمل باللمس\nحماية الدخول: IP65 ضد الغبار والمياه\nالبروتوكولات: Modbus / Profinet'
+            },
+            {
+                id: 'prod-6',
+                name: 'ناقل حركة سير متحرك ثقيل (Conveyor)',
+                category: 'خطوط إنتاج',
+                sku: 'MEI-PL-106',
+                price: 120000,
+                image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
+                desc: 'سيور ناقلة صناعية شديدة التحمل لنقل المواد الخام والمنتجات بين مراحل الإنتاج المختلفة.',
+                specs: 'العرض: 80 سم\nالطول: 12 متراً\nالقدرة: محرك 5 حصان مع إنفرتر للسرعة\nالحمولة القصوى: 2 طن'
+            }
+        ];
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Initialize Listeners
+                initFirestoreListeners();
+            } catch (e) {
+                console.warn("Firebase initialization fallback to local mode:", e);
+                // Fallback to default data if firebase fails or offline
+                products = defaultProducts;
+                renderProducts(products);
+            }
+
+            // Currency switcher listener
+            document.getElementById('currencySelect').addEventListener('change', (e) => {
+                currentCurrency = e.target.value;
+                renderProducts(products);
+                renderCart();
+            });
+        });
+
+        function initFirestoreListeners() {
+            if (!auth.currentUser) return;
+            const userId = auth.currentUser.uid;
+
+            // Products Collection (Public Data)
+            const productsRef = collection(db, 'artifacts', appId, 'public', 'data', 'products');
+            onSnapshot(productsRef, (snapshot) => {
+                products = [];
+                snapshot.forEach(docSnap => {
+                    products.push({ id: docSnap.id, ...docSnap.data() });
+                });
+
+                if (products.length === 0) {
+                    // Seed initial products
+                    defaultProducts.forEach(async (p) => {
+                        await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', p.id), p);
+                    });
+                } else {
+                    renderProducts(products);
+                }
+            }, (error) => {
+                console.error("Error reading products:", error);
+                products = defaultProducts;
+                renderProducts(products);
+            });
+
+            // Quotes Collection (Public Data for Admin view)
+            const quotesRef = collection(db, 'artifacts', appId, 'public', 'data', 'quotes');
+            onSnapshot(quotesRef, (snapshot) => {
+                quotes = [];
+                snapshot.forEach(docSnap => {
+                    quotes.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                document.getElementById('quotesCountBadge').textContent = quotes.length;
+                renderAdminQuotes();
+            }, (error) => {
+                console.error("Error reading quotes:", error);
+            });
+        }
+
+        // Render Products Catalog
+        function renderProducts(list) {
+            const grid = document.getElementById('productsGrid');
+            const noProd = document.getElementById('noProducts');
+            grid.innerHTML = '';
+
+            if (list.length === 0) {
+                noProd.classList.remove('hidden');
+                return;
+            }
+            noProd.classList.add('hidden');
+
+            list.forEach(p => {
+                let priceDisplay = '';
+                if (p.price) {
+                    const convertedPrice = currentCurrency === 'USD' ? Math.round(p.price / 50) : p.price;
+                    const currencySymbol = currentCurrency === 'USD' ? '$' : 'ج.م';
+                    priceDisplay = `<span class="text-xl font-black text-industrial-900">${convertedPrice.toLocaleString()} ${currencySymbol}</span>`;
+                } else {
+                    priceDisplay = `<span class="bg-amberGold-500/10 text-amberGold-600 font-bold px-3 py-1 rounded-lg text-xs border border-amberGold-500/30">اطلب السعر</span>`;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 flex flex-col justify-between group';
+                card.innerHTML = `
+                    <div>
+                        <div class="h-52 overflow-hidden relative bg-slate-100">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/0f172a/f59e0b?text=MEI+Industrial'">
+                            <span class="absolute top-3 right-3 bg-industrial-900 text-amberGold-400 font-bold text-xs px-3 py-1 rounded-full shadow">${p.category}</span>
+                            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-industrial-900 font-mono font-bold text-xs px-2.5 py-1 rounded shadow">${p.sku}</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-extrabold text-lg text-industrial-900 mb-2 leading-snug">${p.name}</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4 line-clamp-2">${p.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2 pt-4">
+                        <div>
+                            <div class="text-xs text-slate-400 mb-0.5">السعر التقديري</div>
+                            ${priceDisplay}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="openProductModal('${p.id}')" class="bg-slate-100 hover:bg-slate-200 text-industrial-900 p-2.5 rounded-xl text-xs font-bold transition" title="التفاصيل الفنية">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="addToCart('${p.id}')" class="bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow">
+                                <i class="fas fa-plus"></i> إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Products
+        window.filterProducts = function() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cat = document.getElementById('categoryFilter').value;
+
+            const filtered = products.filter(p => {
+                const matchesQuery = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.sku.toLowerCase().includes(query);
+                const matchesCat = cat === 'all' || p.category === cat;
+                return matchesQuery && matchesCat;
+            });
+            renderProducts(filtered);
+        };
+
+        // Product Detail Modal
+        window.openProductModal = function(id) {
+            const p = products.find(item => item.id === id);
+            if (!p) return;
+
+            let priceDisplay = p.price ? (currentCurrency === 'USD' ? Math.round(p.price / 50) + ' $' : p.price.toLocaleString() + ' ج.م') : 'يُحدد عند طلب عرض السعر';
+            let specsList = p.specs ? p.specs.split('\n').map(s => `<li class="flex items-center gap-2 text-xs text-slate-700"><i class="fas fa-check text-amberGold-600"></i> ${s}</li>`).join('') : '<li class="text-xs text-slate-500">لا توجد مواصفات إضافية مسجلة.</li>';
+
+            document.getElementById('modalContent').innerHTML = `
+                <div class="space-y-6">
+                    <div class="h-64 rounded-xl overflow-hidden bg-slate-100 relative shadow">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-industrial-900 text-amberGold-400 font-bold text-xs px-3 py-1 rounded-full">${p.category}</span>
+                        <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-industrial-900 font-mono font-bold text-xs px-3 py-1 rounded">${p.sku}</span>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-industrial-900 mb-2">${p.name}</h2>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">${p.desc}</p>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl mb-4">
+                            <h4 class="font-bold text-industrial-900 mb-2 text-sm flex items-center gap-2"><i class="fas fa-list-ul text-amberGold-600"></i> المواصفات الفنية التفصيلية:</h4>
+                            <ul class="space-y-1.5">${specsList}</ul>
+                        </div>
+                        <div class="flex justify-between items-center pt-2 border-t border-slate-200">
+                            <div>
+                                <div class="text-xs text-slate-400">السعر التقديري</div>
+                                <div class="text-xl font-extrabold text-industrial-900">${priceDisplay}</div>
+                            </div>
+                            <button onclick="addToCart('${p.id}'); closeProductModal();" class="bg-amberGold-500 hover:bg-amberGold-600 text-industrial-900 font-bold px-6 py-3 rounded-xl text-sm transition shadow flex items-center gap-2">
+                                <i class="fas fa-cart-plus"></i> إضافة لسلة التسعير
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('productModal').classList.remove('hidden');
+            document.getElementById('productModal').classList.add('flex');
+        };
+
+        window.closeProductModal = function() {
+            document.getElementById('productModal').classList.remove('flex');
+            document.getElementById('productModal').classList.add('hidden');
+        };
+
+        // Cart Management
+        window.addToCart = function(id) {
+            const p = products.find(item => item.id === id);
+            if (!p) return;
+
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...p, qty: 1 });
+            }
+            updateCartCount();
+            showToast(`تم إضافة "${p.name}" إلى سلة الطلبات`);
+        };
+
+        window.updateCartCount = function() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').textContent = count;
+        };
+
+        window.openCartDrawer = function() {
+            renderCart();
+            document.getElementById('cartDrawer').classList.remove('hidden');
+            document.getElementById('cartDrawer').classList.add('flex');
+        };
+
+        window.closeCartDrawer = function() {
+            document.getElementById('cartDrawer').classList.remove('flex');
+            document.getElementById('cartDrawer').classList.add('hidden');
+        };
+
+        window.renderCart = function() {
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = '';
+
+            if (cart.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 text-slate-400"><i class="fas fa-shopping-cart text-4xl mb-3"></i><p class="text-sm">سلة الطلبات فارغة حالياً</p></div>`;
+                document.getElementById('cartTotalPrice').textContent = '0';
+                return;
+            }
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemPrice = item.price ? (currentCurrency === 'USD' ? Math.round(item.price / 50) : item.price) * item.qty : 0;
+                total += itemPrice;
+
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded-xl';
+                div.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <img src="${item.image}" class="w-12 h-12 object-cover rounded-lg" onerror="this.src='https://placehold.co/100x100'">
+                        <div>
+                            <h4 class="font-bold text-sm text-industrial-900">${item.name}</h4>
+                            <div class="text-xs text-slate-500">الكمية: ${item.qty} | الكود: ${item.sku}</div>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 p-2"><i class="fas fa-trash-alt"></i></button>
+                `;
+                list.appendChild(div);
+            });
+
+            const currencySymbol = currentCurrency === 'USD' ? '$' : 'ج.م';
+            document.getElementById('cartTotalPrice').textContent = total > 0 ? total.toLocaleString() + ' ' + currencySymbol : 'يُحدد بعرض سعر خاص';
+        };
+
+        window.removeFromCart = function(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+        };
+
+        window.openCheckoutModal = function() {
+            if (cart.length === 0) {
+                showToast('سلة الطلبات فارغة!');
+                return;
+            }
+            closeCartDrawer();
+            document.getElementById('checkoutModal').classList.remove('hidden');
+            document.getElementById('checkoutModal').classList.add('flex');
+        };
+
+        window.closeCheckoutModal = function() {
+            document.getElementById('checkoutModal').classList.remove('flex');
+            document.getElementById('checkoutModal').classList.add('hidden');
+        };
+
+        window.submitCartCheckout = async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('chkName').value;
+            const phone = document.getElementById('chkPhone').value;
+            const email = document.getElementById('chkEmail').value;
+
+            const orderData = {
+                date: new Date().toISOString(),
+                name,
+                phone,
+                email,
+                details: cart.map(i => `${i.name} (الكمية: ${i.qty})`).join(', '),
+                status: 'قيد الانتظار'
+            };
+
+            try {
+                if (auth.currentUser) {
+                    await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'quotes'), orderData);
+                }
+            } catch (err) {
+                console.error("Firebase write error:", err);
+            }
+
+            cart = [];
+            updateCartCount();
+            closeCheckoutModal();
+            showToast('تم إرسال طلبك بنجاح! سيتم التواصل معكم قريباً.');
+        };
+
+        // Quote Request Form
+        window.handleQuoteSubmit = async function(e) {
+            e.preventDefault();
+            const quoteData = {
+                date: new Date().toISOString(),
+                name: document.getElementById('reqName').value,
+                company: document.getElementById('reqCompany').value,
+                phone: document.getElementById('reqPhone').value,
+                email: document.getElementById('reqEmail').value,
+                details: document.getElementById('reqDetails').value,
+                status: 'قيد الانتظار'
+            };
+
+            try {
+                if (auth.currentUser) {
+                    await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'quotes'), quoteData);
+                }
+            } catch (err) {
+                console.error("Firebase write error:", err);
+            }
+
+            document.getElementById('quoteRequestForm').reset();
+            showToast('تم استلام طلبك بنجاح، شكراً لتواصلك مع الشرق الأوسط.');
+        };
+
+        // Admin Auth & Dashboard
+        window.openAdminLoginModal = function() {
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+            document.getElementById('adminLoginModal').classList.add('flex');
+        };
+
+        window.closeAdminLoginModal = function() {
+            document.getElementById('adminLoginModal').classList.remove('flex');
+            document.getElementById('adminLoginModal').classList.add('hidden');
+        };
+
+        window.verifyAdminLogin = function(e) {
+            e.preventDefault();
+            const pin = document.getElementById('adminPinInput').value;
+            if (pin === 'admin123' || pin === '1985') {
+                closeAdminLoginModal();
+                document.getElementById('adminPinInput').value = '';
+                openAdminDashboard();
+                showToast('مرحباً بك في لوحة الإدارة');
+            } else {
+                showToast('كلمة المرور غير صحيحة!');
+            }
+        };
+
+        window.openAdminDashboard = function() {
+            document.getElementById('adminDashboardModal').classList.remove('hidden');
+            document.getElementById('adminDashboardModal').classList.add('flex');
+            renderAdminProducts();
+            renderAdminQuotes();
+        };
+
+        window.closeAdminDashboard = function() {
+            document.getElementById('adminDashboardModal').classList.remove('flex');
+            document.getElementById('adminDashboardModal').classList.add('hidden');
+        };
+
+        window.switchAdminTab = function(tab) {
+            if (tab === 'products') {
+                document.getElementById('adminTabProducts').classList.remove('hidden');
+                document.getElementById('adminTabQuotes').classList.add('hidden');
+                document.getElementById('tabBtnProducts').className = 'bg-amberGold-500 text-industrial-900 font-bold px-5 py-2.5 rounded-xl text-sm transition';
+                document.getElementById('tabBtnQuotes').className = 'bg-industrial-800 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition border border-industrial-700';
+            } else {
+                document.getElementById('adminTabProducts').classList.add('hidden');
+                document.getElementById('adminTabQuotes').classList.remove('hidden');
+                document.getElementById('tabBtnQuotes').className = 'bg-amberGold-500 text-industrial-900 font-bold px-5 py-2.5 rounded-xl text-sm transition';
+                document.getElementById('tabBtnProducts').className = 'bg-industrial-800 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition border border-industrial-700';
+            }
+        };
+
+        window.renderAdminProducts = function() {
+            const tbody = document.getElementById('adminProductsTableBody');
+            tbody.innerHTML = '';
+
+            products.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-industrial-700/50 hover:bg-industrial-900/50';
+                tr.innerHTML = `
+                    <td class="p-4"><img src="${p.image}" class="w-10 h-10 object-cover rounded-lg"></td>
+                    <td class="p-4 font-bold text-white">${p.name}</td>
+                    <td class="p-4"><span class="bg-industrial-900 text-amberGold-400 text-xs px-2.5 py-1 rounded">${p.category}</span></td>
+                    <td class="p-4 font-mono text-xs">${p.sku}</td>
+                    <td class="p-4">${p.price ? p.price.toLocaleString() + ' ج.م' : '<span class="text-amberGold-400">طلب السعر</span>'}</td>
+                    <td class="p-4 text-center space-x-2 space-x-reverse">
+                        <button onclick="editProduct('${p.id}')" class="bg-industrial-700 hover:bg-industrial-600 text-white p-2 rounded-lg text-xs"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteProductItem('${p.id}')" class="bg-red-500/20 text-red-400 hover:bg-red-500 hover:text-white p-2 rounded-lg text-xs transition"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        window.renderAdminQuotes = function() {
+            const tbody = document.getElementById('adminQuotesTableBody');
+            tbody.innerHTML = '';
+
+            if (quotes.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-slate-500">لا توجد طلبات تسعير أو استفسارات حالياً.</td></tr>`;
+                return;
+            }
+
+            quotes.forEach(q => {
+                const formattedDate = q.date ? new Date(q.date).toLocaleString('ar-EG') : 'حديث';
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-industrial-700/50 hover:bg-industrial-900/50';
+                tr.innerHTML = `
+                    <td class="p-4 text-xs text-slate-400">${formattedDate}</td>
+                    <td class="p-4 font-bold text-white">${q.name} <br><span class="text-xs text-amberGold-400 font-normal">${q.company || ''}</span></td>
+                    <td class="p-4 text-xs">${q.phone} <br><span class="text-slate-400">${q.email}</span></td>
+                    <td class="p-4 text-xs max-w-xs truncate">${q.details}</td>
+                    <td class="p-4"><span class="bg-amberGold-500/20 text-amberGold-400 text-xs px-2.5 py-1 rounded font-bold">${q.status || 'قيد الانتظار'}</span></td>
+                    <td class="p-4 text-center">
+                        <button onclick="deleteQuoteItem('${q.id}')" class="bg-red-500/20 text-red-400 hover:bg-red-500 hover:text-white p-2 rounded-lg text-xs transition"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        window.openProductFormModal = function(mode, id = null) {
+            document.getElementById('productFormModalTitle').textContent = mode === 'add' ? 'إضافة منتج جديد' : 'تعديل المنتج';
+            document.getElementById('editProductId').value = id || '';
+            if (mode === 'add') {
+                document.getElementById('pName').value = '';
+                document.getElementById('pCategory').value = 'خطوط إنتاج';
+                document.getElementById('pSku').value = '';
+                document.getElementById('pPrice').value = '';
+                document.getElementById('pImage').value = '';
+                document.getElementById('pDesc').value = '';
+                document.getElementById('pSpecs').value = '';
+            } else {
+                const p = products.find(item => item.id === id);
+                if (p) {
+                    document.getElementById('pName').value = p.name;
+                    document.getElementById('pCategory').value = p.category;
+                    document.getElementById('pSku').value = p.sku;
+                    document.getElementById('pPrice').value = p.price || '';
+                    document.getElementById('pImage').value = p.image;
+                    document.getElementById('pDesc').value = p.desc;
+                    document.getElementById('pSpecs').value = p.specs || '';
+                }
+            }
+            document.getElementById('productFormModal').classList.remove('hidden');
+            document.getElementById('productFormModal').classList.add('flex');
+        };
+
+        window.closeProductFormModal = function() {
+            document.getElementById('productFormModal').classList.remove('flex');
+            document.getElementById('productFormModal').classList.add('hidden');
+        };
+
+        window.editProduct = function(id) {
+            openProductFormModal('edit', id);
+        };
+
+        window.saveProductData = async function(e) {
+            e.preventDefault();
+            const id = document.getElementById('editProductId').value || 'prod-' + Date.now();
+            const productData = {
+                name: document.getElementById('pName').value,
+                category: document.getElementById('pCategory').value,
+                sku: document.getElementById('pSku').value,
+                price: document.getElementById('pPrice').value ? Number(document.getElementById('pPrice').value) : null,
+                image: document.getElementById('pImage').value,
+                desc: document.getElementById('pDesc').value,
+                specs: document.getElementById('pSpecs').value
+            };
+
+            try {
+                if (auth.currentUser) {
+                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', id), productData);
+                }
+            } catch (err) {
+                console.error("Error saving product:", err);
+            }
+
+            closeProductFormModal();
+            renderAdminProducts();
+            showToast('تم حفظ المنتج بنجاح');
+        };
+
+        window.deleteProductItem = async function(id) {
+            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+                try {
+                    if (auth.currentUser) {
+                        await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', id));
+                    }
+                } catch (err) {
+                    console.error("Error deleting product:", err);
+                }
+                renderAdminProducts();
+                showToast('تم حذف المنتج بنجاح');
+            }
+        };
+
+        window.deleteQuoteItem = async function(id) {
+            if (confirm('هل أنت متأكد من حذف هذا الطلب؟')) {
+                try {
+                    if (auth.currentUser) {
+                        await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'quotes', id));
+                    }
+                } catch (err) {
+                    console.error("Error deleting quote:", err);
+                }
+                showToast('تم حذف الطلب بنجاح');
+            }
+        };
+
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        };
+
+        window.showToast = function(msg) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        };
+    </script>
+</body>
+</html>
